@@ -1,90 +1,36 @@
-// ----------------------------------------------------------------------------
-//
-// -------------------------------- C Basic Mixer --------------------------------
-//
-// ----------------------------------------------------------------------------
-//
-//  Purpose : To study the effects of performing operations on 
-//            mixed data types.
-//
-//  Author  : Paul Zoski
-//  Date    : 4/3/99
-//  Modified: reformatted, JL Popyack Jan. 2002, Jan. 2003.
-//  Modified: rewritten by Jun Yuan-Murray, 2016, August.
-// 
-// ----------------------------------------------------------------------------
 
 #include <stdio.h>
+#include <stdlib.h>
 
-// ----------------------------------------------------------------------------
-//
-// ------------------------------- Main Program -------------------------------
-//
-// ----------------------------------------------------------------------------
-
-void conditionmixer() {
-	int i = 6;
-	char ch = 'm';
-	
-	printf("3==4 = %d\n", 3==4);
-	printf("3==3 = %d\n", 3==3);
-	printf("!0 = %d\n", !0);
-	printf("!(-1) = %d\n", !(-1));
-	printf("!\"abc\" =%d\n", !"abc");
-	printf("2.0f == 2.0 is %d\n", (2.0f == 2.0));
-	printf("1.1f == 1.1 is %d\n", (1.1f == 1.1));
-
-        printf("%d\n", ch < 'z' && ch > 'a');
-	printf("%d\n", !(ch-'z')?1:0);
-	printf("%d\n", 2 * 3 == 6 || (i = i + 1));
-        printf("%d\n", i);
-	printf("%d\n", 2 * 3 == 6 && (i = i + 1));
-        printf("%d\n", i);
+int midpoint_original(int x, int y) {
+    return (x + y)/2;
+}
+int midpoint_A(int x, int y) {
+    return x + ((y - x) / 2);
 }
 
-void typemixer() {
-	int   i=1, j=10, k=20 ;					
-	char  a='a', B='B', dollarSign='$';
-	float x=2.2, y=4.2/5.1, z=1.116e-5;
-		
-	// ---------------------------------------------------------------------
-	// The variables were already assigned values.  Let's check them out.
-	// ---------------------------------------------------------------------
-	printf ("i = %d \tj=%d \t\t k=%d\n", i, j, k);		
-	printf ("a = %c \tB=%c \t\t dollarSign=%c\n", a, B, dollarSign);		
-        printf ("x = %f \ty=%f \t\t z=%e\n", x, y, z);		
-	// ---------------------------------------------------------------------		
-	// And now the fun stuff ....
-	// ---------------------------------------------------------------------
-		
-	// ---------------------------------------------------------------------
-	// an integer plus a character
-
-	printf("a+j=%d\n", a+j);
-	// ---------------------------------------------------------------------
-	// a character plus an integer
-		
-        printf("k+B=%d\n", k+B);
-	// ---------------------------------------------------------------------
-	// mixing floats and characters
-		
-	printf("x/dollarSign = %f\n", x/dollarSign);
-	// ---------------------------------------------------------------------
-	// we can declare new objects at any time!
-		
-	char newChar;
-	newChar = a+j;
-			
-	// ---------------------------------------------------------------------
-	// huh? What's going on here?
-		
-	printf("a+j=%c\n", newChar);
-	printf("B-6=%d\n", B-6);
-
+int midpoint_B(int x, int y) {
+    return ((unsigned int)x + (unsigned int)y) >> 1;
 }
-int main( void )
-{
-	typemixer();
-        conditionmixer();
-	return 0;
+
+int midpoint_C(int x, int y) {
+    return (x & y) + ((x ^ y) >> 1);
+}
+
+int main(int argc, char ** argv) {
+    int x,y;
+    while(x != -19) {
+        printf("Enter value :\n");
+        scanf("%d", &x);
+        printf("Enter value :\n");
+        scanf("%d", &y);
+
+        /*int a = atoi(argv[1]); //atoi converts string to int
+        int b = atoi(argv[2]);*/
+        printf("midpoint_original = %d\n", midpoint_original(x, y));
+        printf("midpoint_A = %d\n", midpoint_A(x, y));
+        printf("midpoint_B = %d\n", midpoint_B(x, y));
+        printf("midpoint_C = %d\n", midpoint_C(x, y));
+    }
+    return 0;
 }
