@@ -47,7 +47,7 @@ test_list_add_back() {
   assert(strcmp(snode_get_str(b), "b") == 0);
   assert(c == snode_get_next(b));
   assert(NULL == snode_get_next(c));
-  
+
   //slist_destroy calls snode_destroy
   slist_destroy(list);
 }
@@ -62,7 +62,7 @@ test_list_add_front() {
   slist_add_front(list, "b");
   slist_add_front(list, "c");
 
-  node_t *a, *b, *c;
+  node_t  *a, *b,*c;
   c = slist_get_front(list);
   assert(strcmp(snode_get_str(c), "c") == 0);
 
@@ -75,45 +75,12 @@ test_list_add_front() {
   assert(strcmp(snode_get_str(b), "b") == 0);
   assert(a == snode_get_next(b));
   assert(NULL == snode_get_next(a));
- 
-  slist_destroy(list);
-}
-
-static void
-test_list_find_at() {
- 
-  list_t *list = slist_create();
-
-  // a b c
-  slist_add_back(list, "a");
-  slist_add_back(list, "b");
-  slist_add_back(list, "c");
-
-  node_t *a, *b, *c;
-  a = slist_find_at(list, 0);
-  b = slist_find_at(list, 1);
-  c = slist_find_at(list, 2);
-
-  // Assertions
-  assert(strcmp(snode_get_str(a), "a") == 0);
-  assert(strcmp(snode_get_str(b), "b") == 0);
-  assert(strcmp(snode_get_str(c), "c") == 0);
-
-  //test negative
-  a = slist_find_at(list, -3);
-  b = slist_find_at(list, -2);
-  c = slist_find_at(list, -1);
-
-  assert(strcmp(snode_get_str(a), "a") == 0);
-  assert(strcmp(snode_get_str(b), "b") == 0);
-  assert(strcmp(snode_get_str(c), "c") == 0);
-  assert(NULL == slist_find_at(list, -4));
 
   slist_destroy(list);
 }
 
 static void
-test_list_find() { 
+test_list_find() {
   list_t *list = slist_create();
 
   // a b c
@@ -169,19 +136,18 @@ test_list_delete() {
   assert(NULL == snode_get_next(c));
 
   slist_delete(list, "c");
+	slist_traverse(list);
   assert(0 == slist_length(list));
-  assert(NULL == slist_get_front(list));
+   assert(NULL == slist_get_front(list));
   assert(NULL == slist_get_back(list));
 
   slist_destroy(list);
 }
-
 int main(void){
   test(list_node_new);
   test(list_add_front);
   test(list_add_back);
   test(list_find);
-  test(list_find_at);
   test(list_delete);
   puts("... \x1b[32m100%\x1b[0m\n");
   return 0;
