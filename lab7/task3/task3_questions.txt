@@ -1,0 +1,6 @@
+What instructions is “c=a+b;” converted to?
+
+	    movl -4(%ebp),%eax -----moves the value at the location -4(%ebp) to the EAX register
+        addl -8(%ebp),%eax------ increment the value at EAX by the value at -8(%ebp).
+        movl %eax,-12(%ebp)------ moves the value of EAX register to the location of c(-12(%ebp).
+
