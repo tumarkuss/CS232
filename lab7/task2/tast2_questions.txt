@@ -1,0 +1,51 @@
+1.What instruction is “int a, b, c, d;” converted to? 
+
+	pushl %ebp
+        movl %esp,%ebp
+
+	subl $16,%esp	----------------
+        movl $1,-4(%ebp)                |
+        movl $2,-8(%ebp)                |--This part allocates 4 ints(a, b, c, d). 
+        movl $3,-12(%ebp)               |  
+        movl $4,-16(%ebp)---------------
+	
+	leave
+        ret
+
+2.Does “int a, b, c, d;” shrink or grow the stack? How many bytes are allocated on stack for a, b, c, and d? Explain them using instruction from question 1.
+	
+	It increases the stack and creates space for 4 ints(16 bytes). So %esp moves down(grows) by 16 spaces. Then it fills up those addresses with the values given, 4 spaces apart.
+
+3.What instruction is “b=2;” converted to? How is the address of variable b formed in the instruction?
+
+ movl $2,-8(%ebp)----Instruction for "b=2"
+
+ This instruction gives value of 2($2) and allocates that 4 spaces after %ebp register.
+
+4.Based on the instructions converted from four assignments, can we claim the declaration order determines the allocation order? For instance, a is declared before b, does it mean a is to be allocated before b on stack? Verify your theory by changing the declaration to “int a, c, b, d;”
+
+Yes, declaration order determines the allocation order. But value assignment doesn't affect the allocation order. 
+
+int main(){
+    int a = 2;
+    int b = 4;
+}
+
+Is:
+
+	subl $8,%esp
+        movl $2,-4(%ebp)
+        movl $4,-8(%ebp)
+
+
+AND
+	int b, a;
+    	a = 2;
+    	b = 4;
+
+	subl $8,%esp
+        movl $2,-8(%ebp)
+        movl $4,-4(%ebp)
+
+
+So when I declare the first int, compiler goes and allocates space for it. And no matter when I assign a value to the int. It will always keep the space for it in the beginning of the stack frame. 
