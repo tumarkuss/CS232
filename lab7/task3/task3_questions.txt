@@ -1,2 +1,0 @@
-What instructions is “c=a+b;” converted to?
-
