@@ -3,8 +3,10 @@ int main() {
    if(a>6){
        b = 15;
    }
+//JYM: loop termination condition is not corect
    while(a<=4){
        b= b+c;
+       //JYM: wrong interpretion of assignee.
        c++;
    }
 }

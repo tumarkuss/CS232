@@ -11,6 +11,7 @@
 	
 	leave
         ret
+JYM: nope, only subl 16 does.
 
 2.Does “int a, b, c, d;” shrink or grow the stack? How many bytes are allocated on stack for a, b, c, and d? Explain them using instruction from question 1.
 	

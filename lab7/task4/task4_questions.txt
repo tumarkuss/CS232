@@ -5,7 +5,7 @@
 2.What happens if we delete the “jmp” instruction?
 Despite the if statement it will never jump and skip movl $15,-8(%ebp)
 Which overwrites value of the integer b from 5 to 15.
-
+JYM: it will fall through
 
 3.Can you rewrite the condition with “jg” in place of “jle”? Why or why not?
 
@@ -14,3 +14,4 @@ Which overwrites value of the integer b from 5 to 15.
 "jle" is jump if <
 
 So we cannot just rewrite them. Because there will be a logical error. We will have to change the values stored as well and if instruction works with a "pivoting" point we will have to increment the value by 1.
+JYM: it is possible if you flip the code blocks too
