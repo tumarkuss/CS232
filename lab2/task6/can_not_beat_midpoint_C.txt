@@ -1,0 +1,44 @@
+In the case of failing midpoint_A:
+
+midpoint_C passed the test where midpoint_A failed because midpoint_A inherently
+allows int overflows as per its formula used. Therefore, as soon as a large
+negative number is used as the second input its sign multiplies with the
+negative giving a positive result, which for large int values overflows hence
+failing the test.
+
+This is seen when 2147483647 and -2147483648 is used to fail midpoint_A test because 2147483647 is
+0b1111111111111111111111111111111 and -2147483648 is -0b10000000000000000000000000000000
+so the midpoint of 2147483647 and -2147483648 is expected to be 0b0. However, midpoint_A
+fails when it computes [y-x] because its result is 0b1111111111111111111111111111111
+- (-0b10000000000000000000000000000000) = 0b11111111111111111111111111111111.
+This results in an overflow as it is larger than the largest possible int value of 2^31.
+
+Knuth addresses this issue by bit manipulation as seen by the & (bitwise and gate)
+and the  ^ (exclusive or); because the "&" finds which power of 2's the two input
+int's share and the ^ gets the powers that differ: this manipulates the variables
+and then appends the binary one position to the right, hence halving the sum
+("+" in the formula joining the & and ^) and always resulting in the output of
+the mid point.
+
+
+In the case of failing midpoint_B:
+
+midpoint_C passed the test where midpoint_B failed because midpoint_B failed to
+address the fact of large negative numbers in its calculation by using "unsigned
+variables". Because x and y are both unsigned an overflow occurs when the two's
+complement is applied to the two numbers.
+
+This is seen with the following example:
+
+0b11111111111111111111111111110011 + 0b11111111111111111111111111111100
+which results in a value larger than 0b11111111111111111111111111111111 (causing
+the overflow)
+
+Additionally, the right shift (>> 1) would not matter due to the overflow occuring.
+
+Knuth addresses this issue by bit manipulation as seen by the & (bitwise and gate)
+and the  ^ (exclusive or); because the "&" finds which power of 2's the two input
+int's share and the ^ gets the powers that differ: this manipulates the variables
+and then appends the binary one position to the right, hence halving the sum
+("+" in the formula joining the & and ^) and always resulting in the output of
+the mid point.

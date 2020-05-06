@@ -1,0 +1,23 @@
+midpoint_A:
+Input						Output
+2147483647 & -2147483648			midpoint_A = 2147483647
+
+I used 2147483647 and -2147483648 to fail midpoint_A test because 2147483647 is
+0b1111111111111111111111111111111 and -2147483648 is -0b10000000000000000000000000000000
+so the midpoint of 2147483647 and -2147483648 is expected to be 0b0. However, midpoint_A
+failed when it computes [y-x] because its result is 0b1111111111111111111111111111111
+- (-0b10000000000000000000000000000000) = 0b11111111111111111111111111111111.
+This results in an overflow as it is larger than the largest possible int value of 2^31.
+
+
+midpoint_B:
+
+The inputs that make midpoint_B fail are any two large negative inputs (close to the bounds of int).
+This is because x and y are both unsigned and therefore an overflow occurs
+when the two's complement is applied to the two numbers.
+
+This is seen with the following example:
+
+0b11111111111111111111111111110011 + 0b11111111111111111111111111111100
+which results in a value larger than 0b11111111111111111111111111111111 (causing
+the overflow)
