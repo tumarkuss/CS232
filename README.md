@@ -45,6 +45,6 @@ instruction design tradeoff -- RISC versus CISC; pipeline, vector processing, an
 ### If you're still here, thanks for reading!
 
 ### I am happy to answer any questions per your request.
-### Feel free to email me here.("mailto:tumarkuss@gmail.com")
+### Feel free to email me here(mailto:tumarkuss@gmail.com)
 
 
