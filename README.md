@@ -9,7 +9,12 @@ Computer Organization(CS232):
 - Unix/Linux
 
 ### About:
-Introduction to major combinational circuits and sequential circuits including digital logic, gates, decoders, registers, counters, and memory units. Data representation including such concepts as number systems and their operations and conversions as well as complements and fixed and floating point representation. Other concepts include microoperations; organization and design of a basic computer; introduction to assembly language programming; interrupts and interrupts processing; central processing unit; instruction design tradeoff -- RISC versus CISC; pipeline, vector processing, and multiprocessors versus multicomputers.
+Introduction to major combinational circuits and sequential circuits including digital logic,
+gates, decoders, registers, counters, and memory units. Data representation including such concepts
+as number systems and their operations and conversions as well as complements and fixed and floating
+point representation. Other concepts include microoperations; organization and design of a basic computer;
+introduction to assembly language programming; interrupts and interrupts processing; central processing unit;
+instruction design tradeoff -- RISC versus CISC; pipeline, vector processing, and multiprocessors versus multicomputers.
 ```
 
 ## Technical skillset gained:
