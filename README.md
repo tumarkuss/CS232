@@ -1,4 +1,4 @@
-# This is Pace University's CS232 repository tought by the best Professor I've ever had: Dr. Jun Yuan(PhD in CS):
+# This is Pace University's CS232 repository taught by the best Professor I've ever had: Dr. Jun Yuan(PhD in CS):
 
 ## About CS232:
 ```markdown
