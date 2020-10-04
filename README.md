@@ -28,7 +28,7 @@ instruction design tradeoff -- RISC versus CISC; pipeline, vector processing, an
 7. Optimization of arithmetic operations with bit-manipulation. Bit-manipulation approaches' pros and cons.
 8. Familiarity in x86 assembly language.
 9. Familiarity in RAM-Hashing processes.
-10. Strong confidence in coding and understanding of Software Development on the much higher level.
+10. Strong confidence in coding and understanding of Software Development at the much higher level.
 
 ```
 ## Personal lessons received(might be helpful to any coder):
