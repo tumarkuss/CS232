@@ -22,7 +22,7 @@ instruction design tradeoff -- RISC versus CISC; pipeline, vector processing, an
 1. Highly profivient in C programming language.
 2. Thorough understanding of the processes that lay behind running code in C and other programming languages.
 3. Effective and Dynamic memory allocation, using functions: calloc(), malloc(), realloc(), free().
-4. C language's memory allocation standards and processes.
+4. C language's memory allocation standards and processes(logic gates, circuits, registers, counters, compliments etc.).
 5. Debugging, coding complicated systems, spotting memory-leaks in C using "Valgrind"
 6. Understanding of Stack, Heap memory allocation and memory manipulation.
 7. Optimization of arithmetic operations with bit-manipulation. Bit-manipulation approaches' pros and cons.
@@ -44,6 +44,7 @@ instruction design tradeoff -- RISC versus CISC; pipeline, vector processing, an
 ```
 ### If you're still here, thanks for reading!
 
-### 
+### I am happy to answer any questions per your request.
+### Feel free to email me here.("mailto:tumarkuss@gmail.com")
 
 
